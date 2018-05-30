@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+   <head>
+  	<title>My First Javascript</title>
+  	<style>
+  	#LittleDiv {float:left;}
+  	#Space {width:100%;height:10px;}
+  	#Pythag {height:230;}
+  	#BigDiv {height:276px;}
+  	#spacey {height:200px;width:100%;background-color:rgba(188, 8, 83,0.7)}
+  	h1 {text-align:center;background-color:rgba(9, 188, 182,0.4);}
+  	#Heading {background-color:rgba(9, 188, 182,0.4)}
+  	#headerTwo {background-image:url("gallery/tribacka.jpg")} 
+  	h2 {color:lime;text-align:center}
+  	#button {background-color:blue;color:lime}
+
+  	</style>
+   </head>
+   <body>
+   
+  
+  	
+	<div id="Heading">
+<h1>Triangle Calculators</h1>
+	</div>
+	
+	<div id="spacey">
+	
+	</div>
+	
+  	<div id="headerTwo">
+  	
+  <h2>Triangle Calculations</h3>
+  
+  </div>
+  
+  <div id="BigDiv">
+  	<div id='LittleDiv'>
+  	
+  	<h3>Area of a Triangle</h3>
+  	
+  	<p>Side 1 <input id='Side1' size=40></p>
+  	
+  	<p>Side 2 <input id="Side2" size=40></p>
+  	
+  	<p>Side 3 <input id='Side3' size=40></p>
+  	
+  	<p><button onClick='triarea()' id="button">Triangle Area</button></p>
+  	
+  	<p id='triareaAnswer'>Area: </p>
+  	
+  	</div>
+  	
+  	<div style="float:left;width:600px">
+  	
+  	<img src="gallery/TriangleArea.jpg" alt="Triangle Area Formula Map" style="width:50%;height:50%">
+  	</div>
+  	</div>
+  	
+  	<div id="BigDiv">
+  	<div id="LittleDiv">
+  	
+  	<h3>Calculate a Missing Side of a Triangle (If you know the Area)</h3>
+  	
+  	<p>Base <input id='Base' size=40></p>
+  	
+  	<p>Angle <input id='Angle' size=40></p>
+  	
+  	<p>Area <input id='Area' size = 40></p>
+  	
+  	<p><button onClick='sideCalc()' id="button">Calculate Missing Side</button></p>
+  	
+  	<p id='missingSide'>Missing Side Length: </p>
+  	
+  	</div>
+  	
+  	<div id="LittleDiv">
+  	<img src="gallery/TriangleSide.jpg" alt="Triangle Area Formula Map" style="width:60%;height:60%">
+  	</div>
+  	</div>
+
+  	
+  	<div id="BigDiv">
+  	<div id="LittleDiv">
+  	
+  	<h3>Pythagorean Theorem Calculator</h3>
+  	
+  	<p>Side A <input id='aSide'></p>
+  	
+  	<p>Side B <input id='bSide'></p>
+  	
+  	<p>Side C <input id='cSide'></p>
+  	
+  	<p><button onClick='pythagTheorem()' id="button">Pythagorean Theorem</button></p>
+  	
+  	<p id='pythagAnswer'>Unknown Side: </p>
+  	
+  	</div>
+  	
+  	<div id="LittleDiv">
+  	
+  	<img src="gallery/ptheory.jpg" alt="Triangle Area Formula Map">
+  	
+  	</div>
+  	</div>
+  	
+  	
+
+  	<div id="LittleDiv">
+  	
+  	</div>
+
+  	
+  	<div id="LittleDiv">
+  	<h2>Mathematical Operations:</h2>
+  	
+  	<p>Number <input id="AddA" size=40></p>
+  	
+  	<p>Number That is Added <input id="AddB" size=40></p>
+  	
+  	<p><button onClick='addition()' id="button">Add</button></p>
+  	
+  	<p id='addition'>Sum: </p>
+  	
+  	
+  	<p>Factor 1 <input id="Factor1" size=40></p>
+  	
+  	<p> Factor 2 <input id="Factor2" size=40></p>
+  	
+  	<p><button onClick='multiplication()' id="button">Multiply</button></p>
+  	
+  	<p id='multiplication'>Product: </p>
+  	
+  	</div>
+  	
+  	
+  	
+  	
+<!-- 
+  	<p>Say what? <input id="sayThis" size=40></p>
+  	//using a selection drop down box
+  	<p>How many times? <select id='howMany'></p>
+                        	<option value=1>1</option>
+                        	<option value=5 selected>5</option>
+                        	<option value=10>10</option>
+                        	<option value=20>20</option>
+                   	  </select>
+                   	  
+  	//using a button, this button executes the function "doLoop" when clicked
+  	
+  	<p><button onClick='doLoop()'>Do It!</button>
+  	
+  	//a div to write to
+  	
+  	<p
+ <div id="results"></div>
+  	//-->
+  
+  	
+
+  	
+<script type='text/javascript'>
+
+
+ 
+  	// gives you the area of a triangle if you know all 3 sides
+function triarea() {
+	var side1 = parseInt(document.getElementById('Side1').value);
+  	var side2 = parseInt(document.getElementById('Side2').value);
+  	var side3 = parseInt(document.getElementById('Side3').value);
+	var p = (side1+side2+side3)/2;
+	var a = Math.sqrt(p*(p-side1)*(p-side2)*(p-side3));
+  
+	console.log(a);
+	document.getElementById('triareaAnswer').innerHTML += a;
+	return a;
+	
+}
+
+function sideCalc() {
+	var base = parseInt(document.getElementById('Base').value);
+	var angle = parseInt(document.getElementById('Angle').value);
+	var area = parseInt(document.getElementById('Area').value);
+
+	var missingSide = 2 * (area / (base * Math.sin(angle * Math.PI / 180.0)));
+	console.log(missingSide);
+	document.getElementById('missingSide').innerHTML += missingSide;
+	return missingSide;
+}
+
+function pythagTheorem() {
+
+var a = parseInt(document.getElementById('aSide').value);
+var b = parseInt(document.getElementById('bSide').value);
+var c = parseInt(document.getElementById('cSide').value);
+var A = Math.sqrt((c * c) - (b * b));
+var B = Math.sqrt((c * c) - (a * a));
+var C = Math.sqrt((a * a) + (b * b));
+
+
+//console.log(A);
+//console.log(B);
+//console.log(C);
+
+if(!A > 0 && !B > 0){
+	console.log(C);
+	document.getElementById('pythagAnswer').innerHTML += C;
+}else if(!B > 0 && !C > 0){
+	console.log(A);
+	document.getElementById('pythagAnswer').innerHTML += A;
+}else if(!A > 0 && !C > 0){
+	console.log(B);
+	document.getElementById('pythagAnswer').innerHTML += B;
+}
+
+
+}
+
+
+function doIt(){
+//fill in side lengths below
+console.log(parseInt(document.getElementById('Side1').value) + 1);
+//document.write(parseInt(document.getElementById('Side1').value));
+}
+//document.write(triarea(parseInt(document.getElementById("Side1").value),parseInt(document.getElementById("Side2").value),parseInt(document.getElementById("Side3").value)));
+//document.write(triarea(3,4,5));  	
+  	
+  	
+  	function addition() {
+  	
+  	var a = parseInt(document.getElementById("AddA").value);
+  	
+  	var b = parseInt(document.getElementById("AddB").value);
+  	
+  	var c = a + b;
+  	var n = a;
+  	
+  	document.getElementById('addition').innerHTML += c;
+  	console.log(a);
+  	//document.getElementById('test').innerHTML += ' stuff';
+  	 
+  	}
+  	
+  	function multiplication() {
+  	
+  	var factorA = parseInt(document.getElementById("Factor1").value);
+  	var factorB = parseInt(document.getElementById("Factor2").value);
+  	var answer = factorA*factorB;
+  	
+  	console.log(factorA * factorB);
+  	document.getElementById('multiplication').innerHTML += answer;
+  	
+  	}
+  	
+     	// function doLoop() {
+//         	//put the value of the text box in a var called sayWhat
+//         
+//         	var sayWhat = document.getElementById('sayThis').value;
+//         	
+//     	    //put the value of the dropdown box in a var called maxLoop
+//     	    
+//         	var maxLoop = document.getElementById('howMany').value;
+//         	
+//         	var str = ''; // where we'll store our output temporarily.
+//         	
+//         	for (var i=1; (i<=maxLoop); i++) {
+//         	
+//                str=str+i+':'+sayWhat+'<br>';
+//                
+//         	}
+//         	
+        	//use the etElementById method to write the value of str to the div named "results"
+        	//see page 4 of Essential Javascript to understand the next line.
+        	
+           // document.getElementById("results").innerHTML=str;
+           
+           
+            //document.getElementById("answer").innerHTML=str;
+            
+     	
+     	
+  	</script>
+   </body>
+</html>
